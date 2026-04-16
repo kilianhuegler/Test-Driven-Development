@@ -67,9 +67,9 @@ function createApp(database) {
     return Math.ceil(baseCost * (1 - reduction / 100));
   }
 
-  function calculateReduction(date) {
+  function calculateReduction(plainDate) {
     let reduction = 0;
-    const plainDate = date ? date.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate() : undefined;
+    plainDate = plainDate ? plainDate.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate() : undefined;
     if (plainDate && isMonday(plainDate) && !isHoliday(plainDate)) {
       reduction = 35;
     }
