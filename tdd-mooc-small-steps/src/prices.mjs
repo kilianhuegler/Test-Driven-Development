@@ -52,7 +52,8 @@ function createApp(database) {
 
   function calculateCostForDayTicket(age, plainDate, baseCost) {
     let reduction = calculateReduction(
-      plainDate ? plainDate.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate() : undefined);
+      plainDate ? plainDate.toTemporalInstant().toZonedDateTimeISO("UTC").toPlainDate() : undefined
+    );
     if (age === undefined) {
       return Math.ceil(baseCost * (1 - reduction / 100));
     }
