@@ -80,11 +80,11 @@ function createApp(database) {
     return date.dayOfWeek === 1;
   }
 
-  function isHoliday(pd) {
+  function isHoliday(plainDate) {
     const holidays = database.getHolidays();
     for (let row of holidays) {
       let plainHoliday = Temporal.PlainDate.from(row.holiday);
-      if (pd && pd.equals(plainHoliday)) {
+      if (plainDate && plainDate.equals(plainHoliday)) {
         return true;
       }
     }
